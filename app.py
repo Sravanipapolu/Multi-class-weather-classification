@@ -6,7 +6,7 @@ import gdown
 import os
 
 # Google Drive File ID of Custom CNN Model
-file_id = "1U1vBcEG9h8BI59tN_JymOXHRxHsBaLMS"
+file_id = "1U1vBcEG9h8BI59tN_JymOXHRxHsBaLMS"  # Replace with your actual file ID
 output_path = "custom_cnn_model.keras"
 
 # Download the Custom CNN model from Google Drive if it doesn't exist
@@ -18,6 +18,9 @@ model = tf.keras.models.load_model(output_path)
 
 # Define class labels
 class_labels = ["Cloudy", "Rain", "Shine", "Sunrise"]
+
+# Define the expected input shape of the model
+EXPECTED_SHAPE = (256, 256, 3)  # Change if your model uses a different input shape
 
 # Streamlit UI
 st.title("🌦 Multi-Class Weather Classification - Custom CNN")
@@ -35,20 +38,25 @@ st.markdown("""
 # Upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
-
 if uploaded_file is not None:
     # Read and preprocess the image
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image = cv2.resize(image, (256, 256)) / 255.0  # Resize and normalize
-    image = np.expand_dims(image, axis=0)  # Add batch dimension
+    image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)  # Read image using OpenCV
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert BGR to RGB
+    image = cv2.resize(image, (EXPECTED_SHAPE[0], EXPECTED_SHAPE[1]))  # Resize correctly
+    image = image / 255.0  # Normalize pixel values (0 to 1)
+    image = np.expand_dims(image, axis=0)  # Add batch dimension to match model input
 
-    # Make prediction
-    prediction = model.predict(image)
-    predicted_class = class_labels[np.argmax(prediction)]
+    # Ensure correct shape before prediction
+    if image.shape[1:] != EXPECTED_SHAPE:
+        st.error(f"Error: Image shape {image.shape[1:]} does not match expected shape {EXPECTED_SHAPE}. Please upload a valid image.")
+    else:
+        # Make prediction
+        prediction = model.predict(image)
+        predicted_class = class_labels[np.argmax(prediction)]
 
-    # Display results
-    st.image(image, caption=f"Predicted: {predicted_class}", use_column_width=True)
-    st.write(f"### 🔍 Prediction: **{predicted_class}**")
+        # Display results
+        st.image(uploaded_file, caption=f"Predicted: {predicted_class}", use_column_width=True)
+        st.write(f"### 🔍 Prediction: **{predicted_class}**")
+
 
