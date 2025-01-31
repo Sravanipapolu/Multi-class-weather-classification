@@ -6,6 +6,22 @@ import gdown
 import os
 import warnings
 
+# Set Streamlit page configuration
+st.set_page_config(
+    page_title="Multi-Class Weather Classification",
+    page_icon="🌦",
+    layout="centered"
+)
+
+# 🎯 Add Title & Your Name
+st.title("🌦 Multi-Class Weather Classification - Custom CNN")
+st.markdown("### Developed by **Sravani Papolu**")
+
+# 📌 Show App Preview Image (Make sure the file is in your GitHub repo)
+st.markdown("### 📌 App Preview")
+st.image("app_preview.png", caption="🔍 How the App Works", use_container_width=True)
+
+
 
 # Hide all warnings
 warnings.filterwarnings("ignore")
