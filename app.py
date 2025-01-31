@@ -53,7 +53,7 @@ if uploaded_file is not None:
     image_resized = np.expand_dims(image_resized, axis=0)  # Add batch dimension to match model input
 
     # Debugging: Print Image Shape
-    st.write(f"🖼️ **Processed Image Shape:** {image_resized.shape}")
+    #st.write(f"🖼️ **Processed Image Shape:** {image_resized.shape}")
 
     # Ensure correct shape before prediction
     if image_resized.shape[1:] != EXPECTED_SHAPE:
