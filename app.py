@@ -36,7 +36,7 @@ st.markdown("""
 """)
 
 # Define the expected input shape of the model
-EXPECTED_SHAPE = (256, 256, 3)  # Update this based on your model
+EXPECTED_SHAPE = (128, 128, 3)  # Change based on your model's expected shape
 
 # Upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
@@ -46,7 +46,7 @@ if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)  # Read image using OpenCV
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert BGR to RGB
-    image = cv2.resize(image, (EXPECTED_SHAPE[0], EXPECTED_SHAPE[1]))  # Resize correctly
+    image = cv2.resize(image, (EXPECTED_SHAPE[0], EXPECTED_SHAPE[1]))  # Resize to 128x128
     image = image / 255.0  # Normalize pixel values (0 to 1)
     image = np.expand_dims(image, axis=0)  # Add batch dimension to match model input
 
