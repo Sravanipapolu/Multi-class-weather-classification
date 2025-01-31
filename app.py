@@ -5,7 +5,7 @@ import cv2
 import tempfile
 
 # Load the trained model
-model = tf.keras.models.load_model("saved_models/resnet_model.h5")
+model = tf.keras.models.load_model("saved_models/resnet_model.keras")  # Updated format
 
 # Define class labels
 class_labels = ["Cloudy", "Rain", "Shine", "Sunrise"]
