@@ -5,22 +5,22 @@ import cv2
 import gdown
 import os
 
-# Google Drive File ID
-file_id = "1PqlA9kLMbgPHCcf8WtA7s8Y-9A2vId5p"
-output_path = "resnet_model.keras"
+# Google Drive File ID of Custom CNN Model
+file_id = "1U1vBcEG9h8BI59tN_JymOXHRxHsBaLMS"
+output_path = "custom_cnn_model.keras"
 
-# Download model from Google Drive if it doesn't exist
+# Download the Custom CNN model from Google Drive if it doesn't exist
 if not os.path.exists(output_path):
     gdown.download(f"https://drive.google.com/uc?id={file_id}", output_path, quiet=False)
 
-# Load the model
+# Load the Custom CNN model
 model = tf.keras.models.load_model(output_path)
 
 # Define class labels
 class_labels = ["Cloudy", "Rain", "Shine", "Sunrise"]
 
 # Streamlit UI
-st.title("🌦 Multi-Class Weather Classification")
+st.title("🌦 Multi-Class Weather Classification - Custom CNN")
 st.write("Upload an image to classify its weather condition!")
 
 # Upload an image
@@ -41,3 +41,4 @@ if uploaded_file is not None:
     # Display results
     st.image(image, caption=f"Predicted: {predicted_class}", use_column_width=True)
     st.write(f"### 🔍 Prediction: **{predicted_class}**")
+
