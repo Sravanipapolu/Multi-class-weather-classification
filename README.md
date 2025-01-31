@@ -12,13 +12,13 @@ The dataset is publicly available on **Mendeley Data**.
 2. Extract the contents into the `data/` folder.
 3. Proceed with running the training scripts.
    
-📈 Model Training
+### 📈 Model Training
 Run the notebooks step by step:
 1️⃣ Open Jupyter Notebook
 2️⃣ Run the preprocessing notebook (Project_Preprocessing.ipynb)
 3️⃣ Run the model training notebook (Project_Model.ipynb)
 
-📊 Evaluation Metrics
+### 📊 Evaluation Metrics
 Accuracy
 Precision, Recall, and F1-score
 Confusion Matrix
