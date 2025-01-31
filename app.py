@@ -35,6 +35,9 @@ st.markdown("""
 - 🌅 **Sunrise**: Early morning sky with warm sunrise hues.  
 """)
 
+# Define the expected input shape of the model
+EXPECTED_SHAPE = (256, 256, 3)  # Update this based on your model
+
 # Upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
@@ -47,13 +50,24 @@ if uploaded_file is not None:
     image = image / 255.0  # Normalize pixel values (0 to 1)
     image = np.expand_dims(image, axis=0)  # Add batch dimension to match model input
 
+    # Debugging: Print Image Shape
+    st.write(f"Processed Image Shape: {image.shape}")
+
     # Ensure correct shape before prediction
     if image.shape[1:] != EXPECTED_SHAPE:
         st.error(f"Error: Image shape {image.shape[1:]} does not match expected shape {EXPECTED_SHAPE}. Please upload a valid image.")
     else:
-        # Make prediction
-        prediction = model.predict(image)
-        predicted_class = class_labels[np.argmax(prediction)]
+        try:
+            # Make prediction
+            prediction = model.predict(image)
+            predicted_class = class_labels[np.argmax(prediction)]
+
+            # Display results
+            st.image(uploaded_file, caption=f"Predicted: {predicted_class}", use_column_width=True)
+            st.write(f"### 🔍 Prediction: **{predicted_class}**")
+        
+        except Exception as e:
+            st.error(f"An error occurred during prediction: {e}")
 
         # Display results
         st.image(uploaded_file, caption=f"Predicted: {predicted_class}", use_column_width=True)
