@@ -11,3 +11,19 @@ The dataset is publicly available on **Mendeley Data**.
 1. **Download the dataset manually** from the link above.
 2. Extract the contents into the `data/` folder.
 3. Proceed with running the training scripts.
+   
+###📈 Model Training
+Run the notebooks step by step:
+1️⃣ Open Jupyter Notebook
+2️⃣ Run the preprocessing notebook (Project_Preprocessing.ipynb)
+3️⃣ Run the model training notebook (Project_Model.ipynb)
+
+###📊 Evaluation Metrics
+Accuracy
+Precision, Recall, and F1-score
+Confusion Matrix
+
+### **Attribution Requirement:**  
+If you use this dataset, you must provide proper credit by citing:  
+Ajayi, Gbeniniyi (2018), **“Multi-class Weather Dataset for Image Classification”**,  
+Mendeley Data, V1, DOI: [10.17632/4drtyfjtfy.1](https://data.mendeley.com/datasets/4drtyfjtfy/1).
