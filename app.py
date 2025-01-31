@@ -28,7 +28,7 @@ EXPECTED_SHAPE = (128, 128, 3)  # Update this based on model.input_shape
 
 # 🎯 Add Title & Your Name
 st.title("🌦 Multi-Class Weather Classification - Custom CNN")
-st.markdown("### Developed by **Sravani Papolu**")
+#st.markdown("### Developed by **Sravani Papolu**")
 
 # 📌 Classes in the Model
 st.markdown("""
