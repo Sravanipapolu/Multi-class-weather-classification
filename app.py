@@ -23,8 +23,18 @@ class_labels = ["Cloudy", "Rain", "Shine", "Sunrise"]
 st.title("🌦 Multi-Class Weather Classification - Custom CNN")
 st.write("Upload an image to classify its weather condition!")
 
+# Description of classes
+st.markdown("""
+### 🌍 **Classes in the Model**
+- ☁ **Cloudy**: Overcast sky with dense clouds.  
+- 🌧 **Rain**: Rainy conditions with visible precipitation.  
+- ☀ **Shine**: Clear sky with bright sunlight.  
+- 🌅 **Sunrise**: Early morning sky with warm sunrise hues.  
+""")
+
 # Upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+
 
 if uploaded_file is not None:
     # Read and preprocess the image
