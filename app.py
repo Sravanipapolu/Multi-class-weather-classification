@@ -10,7 +10,7 @@ import warnings
 
 # Hide all warnings
 warnings.filterwarnings("ignore")
-st.image("app_preview.png", caption="🔍 App Preview", use_container_width=True)
+
 
 
 # Google Drive File ID of Custom CNN Model
