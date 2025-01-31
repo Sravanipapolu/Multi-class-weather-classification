@@ -5,8 +5,9 @@ import cv2
 import gdown
 import os
 import warnings
-warnings.filterwarnings("ignore")  # Hide all warnings
 
+# Hide all warnings
+warnings.filterwarnings("ignore")
 
 # Google Drive File ID of Custom CNN Model
 file_id = "1U1vBcEG9h8BI59tN_JymOXHRxHsBaLMS"  # Replace with your actual file ID
@@ -29,9 +30,9 @@ EXPECTED_SHAPE = (128, 128, 3)  # Update this based on model.input_shape
 st.title("🌦 Multi-Class Weather Classification - Custom CNN")
 st.markdown("### Developed by **Sravani Papolu**")
 
-# Description of classes
+# 📌 Classes in the Model
 st.markdown("""
-###  **Classes in the Model**
+### 🌍 **Classes in the Model**
 - ☁ **Cloudy**: Overcast sky with dense clouds.  
 - 🌧 **Rain**: Rainy conditions with visible precipitation.  
 - ☀ **Shine**: Clear sky with bright sunlight.  
@@ -48,15 +49,15 @@ if uploaded_file is not None:
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert BGR to RGB
     
     # Display the uploaded image (only once)
-    st.image(image, caption="📷 Uploaded Image", use_column_width=True)
+    st.image(image, caption="📷 Uploaded Image", use_container_width=True)  # FIXED
 
     # Resize and preprocess the image for the model
     image_resized = cv2.resize(image, (EXPECTED_SHAPE[0], EXPECTED_SHAPE[1]))  # Resize to 128x128
     image_resized = image_resized / 255.0  # Normalize pixel values (0 to 1)
     image_resized = np.expand_dims(image_resized, axis=0)  # Add batch dimension to match model input
 
-    # Debugging: Print Image Shape
-    #st.write(f"🖼️ **Processed Image Shape:** {image_resized.shape}")
+    # Debugging: Print Image Shape (Hidden)
+    # st.write(f"🖼️ **Processed Image Shape:** {image_resized.shape}")
 
     # Ensure correct shape before prediction
     if image_resized.shape[1:] != EXPECTED_SHAPE:
@@ -72,6 +73,3 @@ if uploaded_file is not None:
 
         except Exception as e:
             st.error(f"⚠️ An error occurred during prediction: {e}")
-
-
-
