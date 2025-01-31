@@ -4,6 +4,9 @@ import numpy as np
 import cv2
 import gdown
 import os
+import warnings
+warnings.filterwarnings("ignore")  # Hide all warnings
+
 
 # Google Drive File ID of Custom CNN Model
 file_id = "1U1vBcEG9h8BI59tN_JymOXHRxHsBaLMS"  # Replace with your actual file ID
