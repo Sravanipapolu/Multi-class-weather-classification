@@ -22,9 +22,9 @@ class_labels = ["Cloudy", "Rain", "Shine", "Sunrise"]
 # Define the expected input shape of the model
 EXPECTED_SHAPE = (128, 128, 3)  # Update this based on model.input_shape
 
-# Streamlit UI
+# 🎯 Add Title & Your Name
 st.title("🌦 Multi-Class Weather Classification - Custom CNN")
-st.write("Upload an image to classify its weather condition!")
+st.markdown("### Developed by **Sravani Papolu**")
 
 # Description of classes
 st.markdown("""
