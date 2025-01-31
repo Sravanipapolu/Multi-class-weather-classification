@@ -28,7 +28,7 @@ st.markdown("### Developed by **Sravani Papolu**")
 
 # Description of classes
 st.markdown("""
-### 🌍 **Classes in the Model**
+###  **Classes in the Model**
 - ☁ **Cloudy**: Overcast sky with dense clouds.  
 - 🌧 **Rain**: Rainy conditions with visible precipitation.  
 - ☀ **Shine**: Clear sky with bright sunlight.  
