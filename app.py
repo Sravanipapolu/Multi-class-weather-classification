@@ -153,9 +153,7 @@ if uploaded_file:
                         <h2 style='color: #1a73e8; margin-bottom: 1rem;'>Weather Classification Result</h2>
                         <div style='font-size: 28px; font-weight: bold; color: #2c3e50; margin-bottom: 1rem;'>
                             {predicted_class}
-                        </div>
-                        <div style='font-size: 20px; color: #1a73e8; margin-bottom: 1rem;'>
-                            Confidence: {confidence:.1f}%
+                        
                         </div>
                         <div style='color: #666; font-size: 14px;'>
                             Analysis completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
