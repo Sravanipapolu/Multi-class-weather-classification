@@ -154,11 +154,6 @@ if uploaded_file:
                         <div style='font-size: 28px; font-weight: bold; color: #2c3e50; margin-bottom: 1rem;'>
                             {predicted_class}
                         
-                        </div>
-                        <div style='color: #666; font-size: 14px;'>
-                            Analysis completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-                        </div>
-                    </div>
                     """,
                     unsafe_allow_html=True
                 )
