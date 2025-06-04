@@ -52,12 +52,15 @@ st.markdown("""
         border-radius: 15px;
         box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     }
-    .step-box {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 1rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   .step-box {
+    background-color: #1c1c1c; /* Dark gray/blackish */
+    color: #ffffff;            /* White text */
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+}
+
     }
     </style>
     """, unsafe_allow_html=True)
