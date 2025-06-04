@@ -18,7 +18,9 @@ st.set_page_config(
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+
     }
     .main {
         padding: 2rem;
