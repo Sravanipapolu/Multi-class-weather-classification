@@ -17,8 +17,11 @@ st.set_page_config(
 # Custom CSS with nice background and enhanced styling
 st.markdown("""
     <style>
-    .stApp {
-    background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+   .stApp {
+    background-color: #000000;
+    color: #ffffff;
+}
+
 }
 
     }
